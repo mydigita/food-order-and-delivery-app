@@ -17,7 +17,7 @@ class _AuthScreenState extends State<AuthScreen> {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text('iFood'),
+          title: const Text('Online Food Delivery'),
           centerTitle: true,
           bottom: const TabBar(
             tabs: [
