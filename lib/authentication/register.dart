@@ -50,7 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               TextButton.icon(
                 onPressed: () {},
                 icon: const Icon(Icons.camera_alt_outlined),
-                label: const Text('Add your photo'),
+                label: const Text('Add a photo'),
               ),
             ],
           ),
@@ -123,7 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: locationController,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: "Add Address",
+                          labelText: "Add Address, press the icon",
                         ),
                       ),
                     ),

@@ -22,11 +22,11 @@ class _AuthScreenState extends State<AuthScreen> {
           bottom: const TabBar(
             tabs: [
               Tab(
-                icon: Icon(Icons.lock),
+                // icon: Icon(Icons.lock),
                 text: 'Login',
               ),
               Tab(
-                icon: Icon(Icons.person),
+                // icon: Icon(Icons.person),
                 text: 'Register',
               ),
             ],
