@@ -37,11 +37,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   backgroundImage: imageXFile == null
                       ? null
                       : FileImage(File(imageXFile!.path)),
-                  backgroundColor: Colors.pink,
+                  backgroundColor: Theme.of(context).primaryColor.withOpacity(.3),
                   child: imageXFile == null
                       ? const Icon(
                           Icons.add_photo_alternate,
                           size: 50,
+                          color: Colors.black54,
                         )
                       : null,
                 ),
@@ -65,7 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     border: const OutlineInputBorder(),
                     prefixIcon: Icon(
                       Icons.person,
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).primaryColor.withOpacity(.3),
                     ),
                     labelText: "Name",
                   ),
@@ -78,7 +79,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     labelText: "Email",
                     prefixIcon: Icon(
                       Icons.email,
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).primaryColor.withOpacity(.3),
+                      
                     ),
                   ),
                 ),
@@ -88,7 +90,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     prefixIcon: Icon(Icons.phone,
-                        color: Theme.of(context).primaryColor),
+                        color: Theme.of(context).primaryColor.withOpacity(.3),
+                        ),
                     labelText: "Phone",
                   ),
                 ),
@@ -100,7 +103,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                       border: const OutlineInputBorder(),
                       prefixIcon: Icon(Icons.lock_open,
-                          color: Theme.of(context).primaryColor),
+                          color: Theme.of(context).primaryColor.withOpacity(.3)),
                       labelText: "Password"),
                 ),
                 const SizedBox(height: 6),
@@ -111,14 +114,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                       border: const OutlineInputBorder(),
                       prefixIcon: Icon(Icons.lock,
-                          color: Theme.of(context).primaryColor),
+                          color: Theme.of(context).primaryColor.withOpacity(.3)),
                       labelText: "Confirm Password"),
                 ),
                 const SizedBox(height: 6),
                 Stack(
                   children: [
-                    Expanded(
-                      child: TextFormField(
+                    
+                  TextFormField(
                         enabled: false,
                         controller: locationController,
                         decoration: const InputDecoration(
@@ -126,7 +129,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           labelText: "Add Address, press the icon",
                         ),
                       ),
-                    ),
+                 
                     Positioned(
                       right: 5,
                       child: IconButton(
