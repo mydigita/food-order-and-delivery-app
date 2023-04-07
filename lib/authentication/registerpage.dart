@@ -3,15 +3,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
-  GlobalKey<FormState> _formKey = GlobalKey();
+class _RegisterPageState extends State<RegisterPage> {
+  final GlobalKey<FormState> _formKey = GlobalKey();
   XFile? imageXFile;
   final ImagePicker _picker = ImagePicker();
   TextEditingController phoneController = TextEditingController();
@@ -37,7 +37,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   backgroundImage: imageXFile == null
                       ? null
                       : FileImage(File(imageXFile!.path)),
-                  backgroundColor: Theme.of(context).primaryColor.withOpacity(.3),
+                  backgroundColor:
+                      Theme.of(context).primaryColor.withOpacity(.3),
                   child: imageXFile == null
                       ? const Icon(
                           Icons.add_photo_alternate,
@@ -62,36 +63,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 TextFormField(
                   controller: nameController,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    prefixIcon: Icon(
-                      Icons.person,
-                      color: Theme.of(context).primaryColor.withOpacity(.3),
-                    ),
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.person),
                     labelText: "Name",
                   ),
                 ),
                 const SizedBox(height: 6),
                 TextFormField(
                   controller: emailController,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
                     labelText: "Email",
-                    prefixIcon: Icon(
-                      Icons.email,
-                      color: Theme.of(context).primaryColor.withOpacity(.3),
-                      
-                    ),
+                    prefixIcon: Icon(Icons.email),
                   ),
                 ),
                 const SizedBox(height: 6),
                 TextFormField(
                   controller: phoneController,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.phone,
-                        color: Theme.of(context).primaryColor.withOpacity(.3),
-                        ),
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.phone),
                     labelText: "Phone",
                   ),
                 ),
@@ -100,10 +92,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: passwordController,
                   obscureText: true,
                   cursorColor: Colors.blue,
-                  decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.lock_open,
-                          color: Theme.of(context).primaryColor.withOpacity(.3)),
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.lock_open),
                       labelText: "Password"),
                 ),
                 const SizedBox(height: 6),
@@ -111,25 +102,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: confirmPasswordController,
                   obscureText: true,
                   cursorColor: Colors.blue,
-                  decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.lock,
-                          color: Theme.of(context).primaryColor.withOpacity(.3)),
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.lock),
                       labelText: "Confirm Password"),
                 ),
                 const SizedBox(height: 6),
                 Stack(
                   children: [
-                    
-                  TextFormField(
-                        enabled: false,
-                        controller: locationController,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: "Add Address, press the icon",
-                        ),
+                    TextFormField(
+                      enabled: false,
+                      controller: locationController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Add Address, press the icon",
                       ),
-                 
+                    ),
                     Positioned(
                       right: 5,
                       child: IconButton(
@@ -146,6 +134,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ],
             ),
           ),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

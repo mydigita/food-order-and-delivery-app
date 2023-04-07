@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodyline/authentication/login.dart';
-import 'package:foodyline/authentication/register.dart';
+import './loginpage.dart';
+import './registerpage.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -37,8 +37,8 @@ class _AuthScreenState extends State<AuthScreen> {
         body: Container(
           color: null,
           child: const TabBarView(children: [
-            LoginScreen(),
-            RegisterScreen(),
+            LoginPage(),
+            RegisterPage(),
           ]),
         ),
       ),
