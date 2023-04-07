@@ -15,46 +15,36 @@ class _LoginPageState extends State<LoginPage> {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                color: null,
-                child: Image.asset("images/seller.jpg"),
-              ),
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: Colors.black38,
-                ),
-                child: Column(
-                  children: const [
-                    Text(
-                      'Welcome!',
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      'Sell your foods online and grow your Business everyday!',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+          Container(
+            padding: const EdgeInsets.only(top: 30),
+            child: Center(
+              child: Text(
+                'Welcome to foodyline!',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w400,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
-            ],
+            ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(
+            height: 15,
+          ),
+          const Text(
+            'Sell more foods and grow faster',
+            style: TextStyle(fontSize: 17),
+          ),
+          Container(
+            padding: const EdgeInsets.only(top: 15),
+            child: const Icon(
+              Icons.fingerprint,
+              size: 120,
+              color: Colors.black45,
+            ),
+          ),
+          const SizedBox(height: 12),
+          const Text('Login to continue...'),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Form(
@@ -91,10 +81,11 @@ class _LoginPageState extends State<LoginPage> {
                     autocorrect: false,
                     textCapitalization: TextCapitalization.none,
                     enableSuggestions: false,
+                    obscureText: true,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Password",
-                      prefixIcon: Icon(Icons.star),
+                      prefixIcon: Icon(Icons.lock_open),
                     ),
                     validator: (value) {
                       if (value!.isEmpty ||
@@ -114,11 +105,16 @@ class _LoginPageState extends State<LoginPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                OutlinedButton(
-                  onPressed: () {},
-                  child: const Text('Signup instead'),
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () {},
+                    child: const Text('Signup instead'),
+                  ),
                 ),
-                ElevatedButton(onPressed: () {}, child: const Text('Login'))
+                const SizedBox(width: 50),
+                Expanded(
+                    child: ElevatedButton(
+                        onPressed: () {}, child: const Text('Login')))
               ],
             ),
           ),
