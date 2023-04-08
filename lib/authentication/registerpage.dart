@@ -138,14 +138,15 @@ class _RegisterPageState extends State<RegisterPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              SizedBox(
+                width: 130,
                 child: OutlinedButton(
                   onPressed: () {},
                   child: const Text("Login instead"),
                 ),
               ),
-              const SizedBox(width: 50),
-              Expanded(
+              SizedBox(
+                width: 130,
                 child: ElevatedButton(
                   onPressed: () {},
                   child: const Text("Register"),

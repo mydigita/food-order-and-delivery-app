@@ -105,16 +105,20 @@ class _LoginPageState extends State<LoginPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
+                SizedBox(
+                  width: 130,
                   child: OutlinedButton(
                     onPressed: () {},
                     child: const Text('Signup instead'),
                   ),
                 ),
-                const SizedBox(width: 50),
-                Expanded(
-                    child: ElevatedButton(
-                        onPressed: () {}, child: const Text('Login')))
+                SizedBox(
+                  width: 130,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('Login'),
+                  ),
+                ),
               ],
             ),
           ),
