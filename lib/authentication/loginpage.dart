@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-
+  const LoginPage({super.key, required this.onToggle});
+  final VoidCallback onToggle;
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: 130,
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: widget.onToggle,
                     child: const Text('Signup instead'),
                   ),
                 ),

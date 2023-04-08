@@ -2,25 +2,34 @@ import 'package:flutter/material.dart';
 import './loginpage.dart';
 import './registerpage.dart';
 
-class AuthScreen extends StatefulWidget {
-  const AuthScreen({super.key});
+class AuthPage extends StatefulWidget {
+  const AuthPage({super.key});
 
   @override
-  State<AuthScreen> createState() => _AuthScreenState();
+  State<AuthPage> createState() => _AuthPageState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class _AuthPageState extends State<AuthPage>
+    with SingleTickerProviderStateMixin {
+  late final _tabController = TabController(
+    length: 2,
+    vsync: this,
+    initialIndex: 0,
+    animationDuration: const Duration(milliseconds: 800),
+  );
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          // toolbarHeight: 50,
           automaticallyImplyLeading: false,
           title: const Text('Online Food Delivery'),
           centerTitle: true,
-          bottom: const TabBar(
-            tabs: [
+          bottom: TabBar(
+            controller: _tabController,
+            tabs: const [
               Tab(
                 // icon: Icon(Icons.lock),
                 text: 'Login',
@@ -36,9 +45,13 @@ class _AuthScreenState extends State<AuthScreen> {
         ),
         body: Container(
           color: null,
-          child: const TabBarView(children: [
-            LoginPage(),
-            RegisterPage(),
+          child: TabBarView(controller: _tabController, children: [
+            LoginPage(
+              onToggle: () => _tabController.index = 1,
+            ),
+            RegisterPage(
+              onToggle: () => _tabController.index = 0,
+            ),
           ]),
         ),
       ),

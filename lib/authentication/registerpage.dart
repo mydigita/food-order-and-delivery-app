@@ -4,14 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
-
+  const RegisterPage({
+    super.key,
+    required this.onToggle,
+  });
+  final VoidCallback onToggle;
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
   final GlobalKey<FormState> _formKey = GlobalKey();
+
   XFile? imageXFile;
   final ImagePicker _picker = ImagePicker();
   TextEditingController phoneController = TextEditingController();
@@ -141,7 +145,7 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(
                 width: 130,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: widget.onToggle,
                   child: const Text("Login instead"),
                 ),
               ),
