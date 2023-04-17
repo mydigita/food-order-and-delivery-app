@@ -8,7 +8,48 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  var _email = '';
+  var _password = '';
   final _formKey = GlobalKey<FormState>();
+  void _tryLogin() {
+    final isFormValid = _formKey.currentState!.validate();
+    if (isFormValid) {
+      _formKey.currentState!.save();
+    } else {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.deepPurple,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          elevation: 1,
+          content: Container(
+            color: null,
+            height: 30,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  'Please provide correct information!',
+                ),
+              ],
+            ),
+          ),
+          duration: const Duration(milliseconds: 1500),
+          behavior: SnackBarBehavior.floating,
+          margin: EdgeInsets.only(
+            bottom: MediaQuery.of(context).size.height -
+                Scaffold.of(context).appBarMaxHeight!.round() -
+                20,
+            left: 10,
+            right: 10,
+          ),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -71,6 +112,9 @@ class _LoginPageState extends State<LoginPage> {
                       }
                       return null;
                     },
+                    onSaved: (newValue) {
+                      _email = newValue!;
+                    },
                   ),
                   const SizedBox(
                     height: 10,
@@ -95,6 +139,9 @@ class _LoginPageState extends State<LoginPage> {
                       }
                       return null;
                     },
+                    onSaved: (newValue) {
+                      _password = newValue!;
+                    },
                   ),
                 ],
               ),
@@ -115,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: 130,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: _tryLogin,
                     child: const Text('Login'),
                   ),
                 ),
